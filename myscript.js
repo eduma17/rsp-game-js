@@ -6,54 +6,65 @@ function computerPlay() {
 }
 
 function gameRound (compPlay, gamerPlay, compScore, gamerScore) {
-
     if (gamerPlay.toLowerCase() === compPlay) {
-        return [compScore, gamerScore, "Even!"];
+        let resultGame = [compScore, gamerScore, "Even!"];
+        return resultGame;
         }
     else if (gamerPlay.toLowerCase() === "rock") {
         if (compPlay === "Scissors") {
             gamerScore ++;
-            return [compScore, gamerScore ,"You win! Rock beats Scissors."];
+            let resultGame = [compScore, gamerScore ,"You win! Rock beats Scissors."];
+            return resultGame;
             }
                
         else {
             compScore ++;
-            return [compScore, gamerScore, "You loose! Scissors beats Paper."];
+            let resultGame = [compScore, gamerScore, "You loose! Scissors beats Paper."];
+            return resultGame;
             }   
         }
     else if (gamerPlay.toLowerCase() === "Scissors") {
         if (compPlay === "paper") {
             gamerScore ++;
-            return [compScore, gamerScore, "You win! Scissors beats Paper."];
+            let resultGame = [compScore, gamerScore, "You win! Scissors beats Paper."];
+            return resultGame;
             }
         else {
             compScore ++;
-            return [compScore, gamerScore, "You loose! Rock beats Scissors."];
+            let resultGame = [compScore, gamerScore, "You loose! Rock beats Scissors."];
+            return resultGame;
             }
         }
     else if (gamerPlay.toLowerCase() === "paper") {
         if (compPlay === "rock") {
             gamerScore ++;
-            return [compScore, gamerScore, "You win! Rock beats Paper."];
+            let resultGame = [compScore, gamerScore, "You win! Rock beats Paper."];
+            return resultGame;
         }
         else {
             compScore ++;
-            return [compScore, gamerScore, "You loose! Scissors beats Paper."];
+            let resultGame = [compScore, gamerScore, "You loose! Scissors beats Paper."];
+            return resultGame;
             }
         }    
 }
 
 function game() {
     const gp = "Rock";
-    let cs = 0;
-    let gs = 0;
+    let cs ;
+    let gs ;
     for (let i=0;i<5;i++){
         let cp = computerPlay();
-        // cs = cs + gameRound[0];
-        // gs = gs + gameRound[1];
-        console.log(gameRound(cp, gp, cs, gs));
-    console.log("Computer: " + cs + " - Player: " + gs);    
+        let cs = 0;
+        let gs = 0;
+        let resultRound = gameRound(cp, gp, cs, gs);
+        console.log(resultRound);
+        cs = cs + resultRound[0];
+        gs = gs + resultRound[1];
+        
     }
+    console.log("Computer: " + cs + " - Player: " + gs);    
+    
 
 }
 
